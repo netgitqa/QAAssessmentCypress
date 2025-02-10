@@ -37,6 +37,14 @@ describe('User admin spec', () => {
   });
 
   it('should delete an Admin', () => {
+    cy.intercept('GET', '/test/*', {
+      statusCode: 200
+    }).as('testValue')
+
+    cy.wait('@testValue').then((interception) => {
+
+    })
+
     dashboardPage.clickNavBarAdminBtn();
     adminPage.specifyUsername(userAdminValues.adminUsername1);
     adminPage.clickSubmitBtn();

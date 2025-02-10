@@ -8,13 +8,20 @@ module.exports = defineConfig({
   responseTimeout: 30000,
   defaultCommandTimeout: 10000,
   screenshotOnRunFailure: true,
+  projectId: '64j9y2',
 
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php',
+
+    // baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php', 'https://coffee-cart.app',
+    baseUrl: 'https://qa.irispro.co',
+
     specPattern: [
+      'cypress/integration/login_spec.js',
+      'cypress/integration/library_spec.js',
+      'cypress/integration/coffee_spec.js',
       'cypress/integration/create_employee_spec.js',
       'cypress/integration/create_admin_spec.js',
       'cypress/integration/edit_employee_spec.js',

@@ -1,23 +1,30 @@
 class LoginPage {
+  constructor() {
+    this.weblocators = {
+      emailField: 'input[id="email"]',
+      passwordField: 'input[id="password"]',
+      submitBtn: 'button:contains("Log in")',
+    }
+  }
+
   visit() {
-    cy.visit('/auth/login');
+    cy.visit('/');
+    return this;
   }
 
-  fillUsername(username) {
-    cy.get('input[name="username"]').type(username);
+  enterEmail(value) {
+    cy.get(this.weblocators.emailField).type(value);
+    return this;
   }
 
-  fillPassword(password) {
-    cy.get('input[name="password"]').type(password);
+  enterPassword(value) {
+    cy.get(this.weblocators.passwordField).type(value);
+    return this;
   }
 
   submit() {
-    cy.get('button[type="submit"]').click();
-  }
-
-  getErrorMessage() {
-    return cy.get('.error-message');
+    cy.get(this.weblocators.submitBtn).click();
+    return this;
   }
 }
-
-export default new LoginPage();
+export default LoginPage;
