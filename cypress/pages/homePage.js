@@ -3,7 +3,6 @@ class HomePage {
     this.weblocators = {
       loginAlert: 'Logged in'
     }
-
   }
 
   loginVerification() {
