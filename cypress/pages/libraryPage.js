@@ -23,7 +23,7 @@ class LibraryPage {
   }
 
   attachFile(value) {
-    cy.get('.MuiBox-root.css-z14mjz').selectFile('/home/jnkoder/Downloads/pdf.pdf', { action: 'drag-drop' });
+    cy.get('.MuiBox-root.css-z14mjz').selectFile('cypress/downloads/pdf.pdf', { action: 'drag-drop' });
     return this;
   }
 
@@ -50,6 +50,18 @@ class LibraryPage {
     //     });
 
     // cy.get('.MuiBox-root.css-z14mjz').selectFile('/home/jnkoder/Downloads/pdf.pdf', { action: 'drag-drop' });
+
+
+  // cy.fixture('pdf.pdf', 'binary').then((fileContent) => {
+  // cy.get('.MuiBox-root.css-z14mjz').selectFile(
+  //     {
+  //       contents: fileContent,
+  //       fileName: 'pdf.pdf',
+  //       mimeType: 'application/pdf',
+  //     },
+  //     { action: 'drag-drop' }
+  //   );
+  // });
 
     // cy.get('input[type="file"]').attachFile('/home/jnkoder/Downloads/pdf.pdf');
     // cy.get(this.weblocators.addFileBtn).selectFile('/home/jnkoder/Downloads/pdf.pdf', { action: 'drag-drop' });
