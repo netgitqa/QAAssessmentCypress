@@ -1,9 +1,6 @@
 name: 'Cypress tests demo'
 
 on:
-  schedule:
-    - cron:  '1 0 * * *'
-
   workflow_dispatch:
 
 jobs:
