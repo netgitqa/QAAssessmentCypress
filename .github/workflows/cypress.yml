@@ -1,0 +1,26 @@
+name: 'Cypress tests demo'
+
+on:
+  schedule:
+    - cron:  '1 0 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Install Node.js.
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - name: Install Dependecies & Build
+        run: |
+          yarn install
+          CI=false yarn cypress:demo
