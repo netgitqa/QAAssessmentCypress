@@ -23,7 +23,7 @@ class LibraryPage {
   }
 
   attachFile(value) {
-    cy.get('.MuiBox-root.css-z14mjz').selectFile('cypress/downloads/pdf.pdf', { action: 'drag-drop' });
+    cy.get('.MuiBox-root.css-z14mjz').selectFile('cypress/attachements/pdf.pdf', { action: 'drag-drop' });
     return this;
   }
 

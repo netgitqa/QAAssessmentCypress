@@ -4,5 +4,8 @@
   "devDependencies": {
     "cypress": "^13.15.0",
     "cypress-file-upload": "^5.0.0"
+  },
+  "scripts": {
+    "cypress:demo": "cypress run --browser chrome --headed --record --key 91c9e918-20ca-4cd2-bb5a-225ee223ae01 --spec cypress/integration/login_spec.js,cypress/integration/library_spec.js"
   }
 }
