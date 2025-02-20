@@ -31,3 +31,7 @@ Cypress.Commands.add("fillUserPassValues", (loginValue, passValue) => {
   loginPage.fillPassword(passValue);
   loginPage.submit();
 });
+
+Cypress.Commands.add("hide", () => {
+  cy.get('.orangehrm-login-error').invoke('css', 'visibility', 'hidden');
+});

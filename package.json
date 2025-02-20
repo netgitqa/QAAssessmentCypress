@@ -2,7 +2,7 @@
   "name": "QAAssessmentCypress",
   "version": "1.0.0",
   "devDependencies": {
-    "cypress": "^13.15.0",
+    "cypress": "^14.0.2",
     "cypress-file-upload": "^5.0.0"
   },
   "scripts": {

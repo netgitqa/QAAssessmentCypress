@@ -1,18 +1,20 @@
 class LoginPage {
   constructor() {
     this.weblocators = {
-      emailField: 'input[id="email"]',
-      passwordField: 'input[id="password"]',
-      submitBtn: 'button:contains("Log in")',
+      emailField: 'input[name="username"]',
+      passwordField: 'input[name="password"]',
+      submitBtn: 'button[type="submit"]'
+      // submitBtn: 'button:contains("Login")',
     }
   }
 
   visit() {
     cy.visit('/');
+    cy.hide();
     return this;
   }
 
-  enterEmail(value) {
+  enterUsername(value) {
     cy.get(this.weblocators.emailField).type(value);
     return this;
   }

@@ -35,6 +35,34 @@ describe('An employee spec', () => {
   });
 
   it('should delete an Employee', () => {
+    cy.intercept('https://js.stripe.com/v3', (req) => {
+      req.continue((res) => {
+        res.body = res.body.replace(
+            'window.top.location.href',
+            'window.self.location.href'
+        );
+        res.send();
+      });
+    });
+
+
+    let employee
+
+    cy.request({
+      method: 'GET',
+
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+      },
+
+      url: `${Cypress.env('VALUE')}/apis/employee/*`,
+    }).then((res) => {
+
+      expect(res.status).to.eq(200)
+      employee = res.body.employee;
+
+    });
+
     employeeListPage.visit();
     employeeListPage.selectEmployee(userEmployeeValues.firstName, userEmployeeValues.lastName);
     employeeListPage.clickDeleteBtn();

@@ -15,8 +15,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
 
-    // baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php', 'https://coffee-cart.app',
-    baseUrl: 'https://qa.irispro.co',
+    // baseUrl: 'https://coffee-cart.app', 'https://qa.irispro.co'
+    baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php',
 
     specPattern: [
       'cypress/integration/login_spec.js',

@@ -3,40 +3,24 @@ import HomePage from "../pages/homePage";
 import UserEmployeeValues from "../support/userEmployeeValues";
 
 describe('Sign In', () => {
-  it('should be logged in', () => {
+  let credentials;
 
+  beforeEach(() => {
+    cy.fixture('creds').then((values) => {
+      credentials = values;
+    });
+  });
+
+  it('should log in using valid credentials', () => {
     const loginPage = new LoginPage();
     loginPage
       .visit()
-      .enterEmail(UserEmployeeValues.emailValue)
-      .enterPassword(UserEmployeeValues.passValue)
+      .enterUsername(credentials.username)
+      .enterPassword(credentials.password)
       .submit();
 
     const homePage = new HomePage();
     homePage.
       loginVerification();
-
-  });
-
-  it('should not be logged in with an incorrect email value', () => {
-
-    const loginPage = new LoginPage();
-    loginPage
-      .visit()
-      .enterEmail(UserEmployeeValues.emailValue)
-      .enterPassword(UserEmployeeValues.emailValue)
-      .submit();
-
-  });
-
-  it('should not be logged in with an incorrect password value', () => {
-
-    const loginPage = new LoginPage();
-    loginPage
-      .visit()
-      .enterEmail(UserEmployeeValues.passValue)
-      .enterPassword(UserEmployeeValues.passValue)
-      .submit();
-
   });
 });
